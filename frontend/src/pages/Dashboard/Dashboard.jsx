@@ -1,5 +1,12 @@
+import Navigation from "../../components/Navigation/Navigation";
+
 const Dashboard = () => {
-    return <h1>Dashboard</h1>;
+    return (
+        <section id="dashboard">
+            <Navigation />
+            <h1>Dashboard</h1>
+        </section>
+    );
 };
 
 export default Dashboard;

@@ -1,0 +1,18 @@
+#navigation {
+    height: 100vh;
+    width: 5vw;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5vh;
+
+    img {
+        width: 90%;
+        object-fit: contain;
+        filter: hue-rotate(180deg);
+    }
+}
