@@ -9,7 +9,7 @@ const BootDetails = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:9999/api/v1/boote/${id}`)
+        fetch(`https://bootsverleih-87-backend.onrender.com/api/v1/boote/${id}`)
             .then((res) => res.json())
             .then((data) => setBoat(data.boot))
             .catch((error) => console.error(error));
@@ -20,9 +20,12 @@ const BootDetails = () => {
     }
 
     const handleDelete = () => {
-        fetch(`http://localhost:9999/api/v1/boote/${id}`, {
-            method: "DELETE",
-        })
+        fetch(
+            `https://bootsverleih-87-backend.onrender.com/api/v1/boote/${id}`,
+            {
+                method: "DELETE",
+            }
+        )
             .then(() => {
                 navigate("/alle-boote");
             })
@@ -32,7 +35,9 @@ const BootDetails = () => {
     return (
         <section id="bootDetails">
             <Navigation />
-            <img src={`http://localhost:9999/${boat.bild}`} />
+            <img
+                src={`https://bootsverleih-87-backend.onrender.com/${boat.bild}`}
+            />
             <h1>{boat.bootsart}</h1>
             <p>Seriennummer: {boat.seriennummer}</p>
             <p>Baujahr: {boat.baujahr}</p>

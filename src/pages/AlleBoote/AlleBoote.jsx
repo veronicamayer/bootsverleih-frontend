@@ -8,7 +8,9 @@ const AlleBoote = () => {
     const [boats, setBoats] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:9999/api/v1/alleBooteObj")
+        fetch(
+            "https://bootsverleih-87-backend.onrender.com/api/v1/alleBooteObj"
+        )
             .then((res) => res.json())
             .then((data) => setBoats(data.boot))
             .catch((error) => console.error(error));
@@ -27,7 +29,7 @@ const AlleBoote = () => {
                         <img
                             src={
                                 boat.bild
-                                    ? `http://localhost:9999/${boat.bild}`
+                                    ? `https://bootsverleih-87-backend.onrender.com/${boat.bild}`
                                     : BootDefault
                             }
                             onError={(e) => {

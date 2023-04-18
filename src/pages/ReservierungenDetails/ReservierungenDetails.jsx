@@ -9,7 +9,9 @@ const ReservierungenDetails = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:9999/api/v1/reservierung/${id}`)
+        fetch(
+            `https://bootsverleih-87-backend.onrender.com/api/v1/reservierung/${id}`
+        )
             .then((res) => res.json())
             .then((data) => setBookings(data.reservierung))
             .catch((error) => console.error(error));
@@ -20,9 +22,12 @@ const ReservierungenDetails = () => {
     }
 
     const handleDelete = () => {
-        fetch(`http://localhost:9999/api/v1/reservierung/${id}`, {
-            method: "DELETE",
-        })
+        fetch(
+            `https://bootsverleih-87-backend.onrender.com/api/v1/reservierung/${id}`,
+            {
+                method: "DELETE",
+            }
+        )
             .then(() => {
                 navigate("/alle-reservierungen");
             })

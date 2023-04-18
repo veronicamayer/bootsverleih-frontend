@@ -20,10 +20,13 @@ const NeuesBootForm = () => {
         formData.append("bild", bild);
 
         try {
-            const response = await fetch("http://localhost:9999/api/v1/boote", {
-                method: "POST",
-                body: formData,
-            });
+            const response = await fetch(
+                "https://bootsverleih-87-backend.onrender.com/api/v1/boote",
+                {
+                    method: "POST",
+                    body: formData,
+                }
+            );
 
             console.log("Boat created successfully");
             setBootsart("");

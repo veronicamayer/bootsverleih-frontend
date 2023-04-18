@@ -7,7 +7,9 @@ const AlleReservierungen = () => {
     const [bookings, setBookings] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:9999/api/v1/alleReservierungenObj")
+        fetch(
+            "https://bootsverleih-87-backend.onrender.com/api/v1/alleReservierungenObj"
+        )
             .then((res) => res.json())
             .then((data) => setBookings(data.reservierung))
             .catch((error) => console.error(error));
