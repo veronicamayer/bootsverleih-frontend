@@ -1,0 +1,13 @@
+#dashboard {
+    #kacheln {
+        display: flex;
+        gap: 0 5vw;
+
+        article {
+            width: 20vw;
+            border: 1px dashed #ffafcc;
+            background-color: white;
+            color: #ffafcc;
+        }
+    }
+}

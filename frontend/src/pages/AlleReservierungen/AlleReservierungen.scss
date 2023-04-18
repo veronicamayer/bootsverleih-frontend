@@ -1,0 +1,33 @@
+.plusButton {
+    background-color: #ffafcc;
+    color: white;
+    font-size: 2rem;
+    padding: 0 5% 1% 5%;
+    border-radius: 50px;
+}
+
+#alleReservierungen {
+    width: 70vw;
+    margin-left: 7vw;
+
+    #bookingitems {
+        background-color: white;
+        list-style: none;
+        padding: 0;
+        margin-top: 5vh;
+
+        a {
+            padding: 3vh 5vw 3vh 5vw;
+            display: block;
+            color: black;
+        }
+
+        a:nth-of-type(odd) {
+            background-color: rgb(228, 228, 228);
+        }
+
+        a:nth-of-type(even) {
+            background-color: white;
+        }
+    }
+}
