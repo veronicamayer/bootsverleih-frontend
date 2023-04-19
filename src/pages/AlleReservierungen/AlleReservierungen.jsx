@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import Navigation from "../../components/Navigation/Navigation";
 import "./AlleReservierungen.scss";
 import { Link } from "react-router-dom";
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from "@fullcalendar/daygrid";
 
 const AlleReservierungen = () => {
     const [bookings, setBookings] = useState([]);
 
     useEffect(() => {
-        fetch(
-            "https://bootsverleih-87-backend.onrender.com/api/v1/alleReservierungenObj"
-        )
+        fetch("http://localhost:9999/api/v1/alleReservierungenObj")
             .then((res) => res.json())
             .then((data) => setBookings(data.reservierung))
             .catch((error) => console.error(error));
@@ -17,7 +17,7 @@ const AlleReservierungen = () => {
 
     return (
         <section id="alleReservierungen">
-            <Navigation />
+            <Navigation currentPage="calendar" />
             <article>
                 <h1>Alle Reservierungen</h1>
                 <Link to="/neue-reservierung" className="plusButton">
@@ -25,15 +25,16 @@ const AlleReservierungen = () => {
                 </Link>
             </article>
             <article id="bookingitems">
-                {bookings.map((booking) => (
-                    <Link
-                        to={`/alle-reservierungen/${booking._id}`}
-                        key={booking._id}
-                        className="bookingitem"
-                    >
-                        {`Boat: ${booking.welches_boot}, ${booking.startdatum} bis ${booking.enddatum}`}
-                    </Link>
-                ))}
+                <FullCalendar
+                    plugins={[dayGridPlugin]}
+                    initialView="dayGridMonth"
+                    events={bookings.map((booking) => ({
+                        title: `Von: ${booking.startdatum} Bis: ${booking.enddatum}`,
+                        start: booking.startdatum,
+                        end: booking.enddatum,
+                        url: `/alle-reservierungen/${booking._id}`,
+                    }))}
+                />
             </article>
         </section>
     );

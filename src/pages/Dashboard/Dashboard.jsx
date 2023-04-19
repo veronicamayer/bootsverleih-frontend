@@ -10,7 +10,7 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchReservationsCount = async () => {
             const response = await fetch(
-                "https://bootsverleih-87-backend.onrender.com/api/v1/alleReservierungen"
+                "http://localhost:9999/api/v1/alleReservierungen"
             );
             const data = await response.json();
             setReservationsCount(data.reservierung);
@@ -19,7 +19,7 @@ const Dashboard = () => {
 
         const fetchBoatsCount = async () => {
             const response = await fetch(
-                "https://bootsverleih-87-backend.onrender.com/api/v1/alleBoote"
+                "http://localhost:9999/api/v1/alleBoote"
             );
             const data = await response.json();
             setBoatsCount(data.boot);
@@ -29,16 +29,16 @@ const Dashboard = () => {
 
     return (
         <section id="dashboard">
-            <Navigation />
+            <Navigation currentPage="home" />
             <h1>Dashboard</h1>
             <div id="kacheln">
                 <article>
-                    <p>Aktuelle Reservierungen</p>
+                    <h2>Aktuelle Reservierungen</h2>
                     <p>{reservationsCount}</p>
                 </article>
                 <DashboardNumbers />
                 <article>
-                    <p>Gesamtanzahl Boote</p>
+                    <h2>Gesamtanzahl Boote</h2>
                     <p>{boatsCount}</p>
                 </article>
             </div>

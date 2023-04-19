@@ -1,10 +1,41 @@
 #bootDetails {
-    img {
-        width: 50%;
-        object-fit: contain;
-    }
+    width: 90%;
+    margin-left: 15vw;
 
-    button {
-        background-color: #ffafcc;
+    article {
+        display: flex;
+        justify-content: center;
+
+        #bild {
+            width: 50%;
+            img {
+                width: 100%;
+                object-fit: contain;
+            }
+        }
+
+        #text {
+            text-align: left;
+            width: 50%;
+            margin-left: 7vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            h1 {
+                margin: 0 0 3vh 0;
+            }
+
+            p {
+                margin: 1vh 0;
+            }
+
+            button {
+                background: linear-gradient(to right, #cdffd8, #94b9ff);
+                background-repeat: no-repeat;
+                width: fit-content;
+                margin-top: 5vh;
+            }
+        }
     }
 }

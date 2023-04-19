@@ -6,19 +6,30 @@ import BootDefault from "../../assets/images/boatstock.png";
 
 const AlleBoote = () => {
     const [boats, setBoats] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        fetch(
-            "https://bootsverleih-87-backend.onrender.com/api/v1/alleBooteObj"
-        )
+        fetch("http://localhost:9999/api/v1/alleBooteObj")
             .then((res) => res.json())
-            .then((data) => setBoats(data.boot))
+            .then((data) => {
+                setBoats(data.boot);
+                setIsLoading(false);
+            })
             .catch((error) => console.error(error));
     }, []);
 
+    if (isLoading) {
+        return (
+            <section id="alleBoote">
+                <Navigation currentPage="boote" />
+                <p>Loading...</p>
+            </section>
+        );
+    }
+
     return (
         <section id="alleBoote">
-            <Navigation />
+            <Navigation currentPage="boote" />
             <h1>Alle Boote</h1>
             <Link to="/neues-boot" className="plusButton">
                 +
@@ -29,7 +40,7 @@ const AlleBoote = () => {
                         <img
                             src={
                                 boat.bild
-                                    ? `https://bootsverleih-87-backend.onrender.com/${boat.bild}`
+                                    ? `http://localhost:9999/${boat.bild}`
                                     : BootDefault
                             }
                             onError={(e) => {

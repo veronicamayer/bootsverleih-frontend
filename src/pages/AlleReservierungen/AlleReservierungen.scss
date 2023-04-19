@@ -1,5 +1,5 @@
 .plusButton {
-    background-color: #ffafcc;
+    background: linear-gradient(to right, #cdffd8, #94b9ff);
     color: white;
     font-size: 2rem;
     padding: 0 5% 1% 5%;
@@ -15,19 +15,26 @@
         list-style: none;
         padding: 0;
         margin-top: 5vh;
+        color: black;
+
+        .fc {
+            padding: 15px;
+        }
+
+        .fc-event-title {
+            color: black;
+        }
+
+        .fc-event {
+            background-color: #ffc8dd;
+            padding: 5px 25px;
+            border: none;
+        }
 
         a {
             padding: 3vh 5vw 3vh 5vw;
             display: block;
             color: black;
-        }
-
-        a:nth-of-type(odd) {
-            background-color: rgb(228, 228, 228);
-        }
-
-        a:nth-of-type(even) {
-            background-color: white;
         }
     }
 }

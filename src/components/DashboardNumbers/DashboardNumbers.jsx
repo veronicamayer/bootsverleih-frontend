@@ -6,18 +6,14 @@ const DashboardNumbers = () => {
     const [availableBoatsCount, setAvailableBoatsCount] = useState(0);
 
     useEffect(() => {
-        fetch(
-            "https://bootsverleih-87-backend.onrender.com/api/v1/alleBooteObj"
-        )
+        fetch("http://localhost:9999/api/v1/alleBooteObj")
             .then((res) => res.json())
             .then((data) => setBoats(data.boot))
             .catch((error) => console.error(error));
     }, []);
 
     useEffect(() => {
-        fetch(
-            "https://bootsverleih-87-backend.onrender.com/api/v1/alleReservierungenObj"
-        )
+        fetch("http://localhost:9999/api/v1/alleReservierungenObj")
             .then((res) => res.json())
             .then((data) => setReservations(data.reservierung))
             .catch((error) => console.error(error));
@@ -40,7 +36,7 @@ const DashboardNumbers = () => {
 
     return (
         <article>
-            <p>Verfügbare Boote</p>
+            <h2>Verfügbare Boote</h2>
             <p>{availableBoatsCount}</p>
         </article>
     );

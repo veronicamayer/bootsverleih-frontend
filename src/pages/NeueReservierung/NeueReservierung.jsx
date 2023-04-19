@@ -10,18 +10,14 @@ const NeueReservierung = () => {
     const [reservations, setReservations] = useState([]);
 
     useEffect(() => {
-        fetch(
-            "https://bootsverleih-87-backend.onrender.com/api/v1/alleBooteObj"
-        )
+        fetch("http://localhost:9999/api/v1/alleBooteObj")
             .then((res) => res.json())
             .then((data) => setBoats(data.boot))
             .catch((error) => console.error(error));
     }, []);
 
     useEffect(() => {
-        fetch(
-            "https://bootsverleih-87-backend.onrender.com/api/v1/alleReservierungenObj"
-        )
+        fetch("http://localhost:9999/api/v1/alleReservierungenObj")
             .then((res) => res.json())
             .then((data) => setReservations(data.reservierung))
             .catch((error) => console.error(error));
@@ -62,14 +58,11 @@ const NeueReservierung = () => {
         console.log(newReservation);
 
         // Send a POST request to create the new reservation
-        fetch(
-            "https://bootsverleih-87-backend.onrender.com/api/v1/reservierung",
-            {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(newReservation),
-            }
-        )
+        fetch("http://localhost:9999/api/v1/reservierung", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(newReservation),
+        })
             .then((res) => {
                 if (res.ok) {
                     alert("Reservation created successfully!");
@@ -100,7 +93,7 @@ const NeueReservierung = () => {
 
     return (
         <section id="neueReservierung">
-            <Navigation />
+            <Navigation currentPage="calendar" />
             <h1>Neue Reservierung</h1>
             <form onSubmit={handleCreateBooking}>
                 <label htmlFor="startDate">Startdatum:</label>
